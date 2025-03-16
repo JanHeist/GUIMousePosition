@@ -2,8 +2,11 @@ package org.example.core;
 
 import net.labymod.api.addon.LabyAddon;
 import net.labymod.api.models.addon.annotation.AddonMain;
-import org.example.core.commands.ExamplePingCommand;
-import org.example.core.listener.ExampleGameTickListener;
+import org.example.core.controller.ContainerController;
+import org.example.core.controller.DefaultContainerController;
+import org.example.core.generated.DefaultReferenceStorage;
+import org.example.core.listener.GuiOpenListener;
+
 
 @AddonMain
 public class ExampleAddon extends LabyAddon<ExampleConfiguration> {
@@ -12,8 +15,12 @@ public class ExampleAddon extends LabyAddon<ExampleConfiguration> {
   protected void enable() {
     this.registerSettingCategory();
 
-    this.registerListener(new ExampleGameTickListener(this));
-    this.registerCommand(new ExamplePingCommand());
+    ContainerController controller = this.references().getContainerController();
+    if (controller == null) {
+      controller = new DefaultContainerController();
+    }
+
+    this.registerListener(new GuiOpenListener(this, controller));
 
     this.logger().info("Enabled the Addon");
   }
@@ -22,4 +29,9 @@ public class ExampleAddon extends LabyAddon<ExampleConfiguration> {
   protected Class<ExampleConfiguration> configurationClass() {
     return ExampleConfiguration.class;
   }
+
+  private DefaultReferenceStorage references() {
+    return this.referenceStorageAccessor();
+  }
+
 }

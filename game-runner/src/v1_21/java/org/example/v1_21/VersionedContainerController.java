@@ -1,0 +1,58 @@
+package org.example.v1_21;
+
+import java.util.Timer;
+import java.util.TimerTask;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import net.labymod.api.Laby;
+import net.labymod.api.event.client.gui.screen.ScreenDisplayEvent;
+import net.labymod.api.models.Implements;
+import net.labymod.v1_21.client.gui.screen.VersionedScreenWrapper;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import org.example.core.ExampleAddon;
+import org.example.core.controller.ContainerController;
+
+@Singleton
+@Implements(ContainerController.class)
+public class VersionedContainerController extends ContainerController {
+
+  private double lastX = -1;
+  private double lastY = -1;
+  private boolean inGui = false;
+
+  @Inject
+  public VersionedContainerController() {
+  }
+
+  @Override
+  public void guiOpened(ScreenDisplayEvent e, ExampleAddon addon) {
+    if (e.getScreen() == null && inGui) {
+      lastX = Laby.labyAPI().minecraft().mouse().getX();
+      lastY = Laby.labyAPI().minecraft().mouse().getY();
+
+      inGui = false;
+    }
+
+    if (e.getScreen() instanceof VersionedScreenWrapper wrapper
+        && wrapper.getVersionedScreen() instanceof Screen si
+        && si instanceof AbstractContainerScreen<?>) {
+
+      if (!Laby.labyAPI().minecraft().isIngame() || !Minecraft.getInstance().isWindowActive()) {
+        return;
+      }
+
+      inGui = true;
+
+      new Timer().schedule(new TimerTask() {
+        @Override
+        public void run() {
+          Minecraft.getInstance().execute(() -> Laby.labyAPI().minecraft().setCursorPosition(lastX, lastY));
+        }
+      }, 1);
+
+    }
+  }
+
+}
