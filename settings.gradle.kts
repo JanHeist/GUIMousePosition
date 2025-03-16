@@ -1,4 +1,4 @@
-rootProject.name = "labymod4-addon-template"
+rootProject.name = "dev_janheist_saveguimouseposition"
 
 pluginManagement {
     val labyGradlePluginVersion = "0.5.8"

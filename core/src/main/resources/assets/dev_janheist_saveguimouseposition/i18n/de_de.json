@@ -1,0 +1,16 @@
+{
+  "dev_janheist_saveguimouseposition": {
+    "settings": {
+      "enabled": {
+        "name": "Addon aktiviert"
+      },
+      "saveScope": {
+        "name": "Speicherumfang",
+        "entries": {
+          "global": "Alle Inventare global",
+          "guititle": "Basierend auf Inventartitel"
+        }
+      }
+    }
+  }
+}
