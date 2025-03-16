@@ -22,8 +22,7 @@ import java.util.TimerTask;
 @Implements(ContainerController.class)
 public class VersionedContainerController extends ContainerController {
 
-    private double lastX = -1;
-    private double lastY = -1;
+    private double lastX = -1, lastY = -1;
     private boolean inGui = false;
 
     @Inject
