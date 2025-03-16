@@ -34,12 +34,11 @@ public class VersionedContainerController extends ContainerController {
     if (processing) {
       return;
     }
+
     processing = true;
 
     if (e.getScreen() == null && inGui) {
-      savePosition(Laby.labyAPI().minecraft().mouse().getX(),
-          Laby.labyAPI().minecraft().mouse().getY(), addon);
-
+      savePosition(addon);
       inGui = false;
       processing = false;
       return;
@@ -58,8 +57,7 @@ public class VersionedContainerController extends ContainerController {
     }
 
     if (inGui) {
-      savePosition(Laby.labyAPI().minecraft().mouse().getX(),
-          Laby.labyAPI().minecraft().mouse().getY(), addon);
+      savePosition(addon);
     }
 
     lastTitle = acs.getTitle().getString();
@@ -74,16 +72,17 @@ public class VersionedContainerController extends ContainerController {
         processing = false;
       }
     }, 5);
-
   }
 
-  private void savePosition(double x, double y, SaveGuiMousePosAddon addon) {
+  private void savePosition(SaveGuiMousePosAddon addon) {
     if (addon.configuration().getSaveScope().get() == SaveScope.GLOBAL) {
       lastX = Laby.labyAPI().minecraft().mouse().getX();
       lastY = Laby.labyAPI().minecraft().mouse().getY();
-    } else if (addon.configuration().getSaveScope().get() == SaveScope.GUITITLE) {
-      guiPositions.put(lastTitle, new double[]{x, y});
+      return;
     }
+
+    guiPositions.put(lastTitle, new double[]{Laby.labyAPI().minecraft().mouse().getX(),
+        Laby.labyAPI().minecraft().mouse().getY()});
   }
 
   private double[] getPosition(String title, SaveGuiMousePosAddon addon) {
