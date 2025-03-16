@@ -1,0 +1,16 @@
+{
+  "saveguimouseposition": {
+    "settings": {
+      "enabled": {
+        "name": "Addon enabled"
+      },
+      "saveScope": {
+        "name": "Save Scope",
+        "entries": {
+          "global": "Across All Inventories",
+          "guititle": "Based on Inventory"
+        }
+      }
+    }
+  }
+}

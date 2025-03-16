@@ -1,4 +1,4 @@
-rootProject.name = "dev_janheist_saveguimouseposition"
+rootProject.name = "SaveGuiMousePosition"
 
 pluginManagement {
     val labyGradlePluginVersion = "0.5.8"

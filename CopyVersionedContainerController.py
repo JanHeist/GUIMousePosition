@@ -12,10 +12,10 @@ BASE_VERSION = 'v1_21_3'
 
 # The import statement to update
 IMPORT_STATEMENT_TEMPLATE = 'import net.labymod.{version}.client.gui.screen.VersionedScreenWrapper;'
-PACKAGE_STATEMENT_TEMPLATE = 'package dev_janheist_saveguimouseposition.{version};'
+PACKAGE_STATEMENT_TEMPLATE = 'package dev.janheist.saveguimouseposition.{version};'
 
 def copy_and_update_files():
-    base_file_path = os.path.join(BASE_DIR, BASE_VERSION, 'java', f'dev_janheist_saveguimouseposition/{BASE_VERSION}', 'VersionedContainerController.java')
+    base_file_path = os.path.join(BASE_DIR, BASE_VERSION, 'java', 'dev', 'janheist', 'saveguimouseposition', f'{BASE_VERSION}', 'VersionedContainerController.java')
 
     for version_dir in os.listdir(BASE_DIR):
         if version_dir in EXCLUDE_VERSIONS or version_dir == BASE_VERSION or not os.path.isdir(os.path.join(BASE_DIR, version_dir)):
@@ -23,7 +23,7 @@ def copy_and_update_files():
 
         import_statement = IMPORT_STATEMENT_TEMPLATE.format(version=version_dir)
         package_statement = PACKAGE_STATEMENT_TEMPLATE.format(version=version_dir)
-        dest_dir = os.path.join(BASE_DIR, version_dir, 'java', f'dev_janheist_saveguimouseposition/{version_dir}')
+        dest_dir = os.path.join(BASE_DIR, version_dir, 'java', 'dev', 'janheist', 'saveguimouseposition', f'{version_dir}')
         dest_file_path = os.path.join(dest_dir, 'VersionedContainerController.java')
 
         # Copy the file
@@ -41,7 +41,7 @@ def copy_and_update_files():
         )
 
         new_content = new_content.replace(
-            f'package dev_janheist_saveguimouseposition.{BASE_VERSION};',
+            f'package dev.janheist.saveguimouseposition.{BASE_VERSION};',
             package_statement
         )
 

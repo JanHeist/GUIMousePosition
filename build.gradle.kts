@@ -5,11 +5,11 @@ plugins {
 
 val versions = providers.gradleProperty("net.labymod.minecraft-versions").get().split(";")
 
-group = "dev_janheist_saveguimouseposition"
+group = "dev.janheist.saveguimouseposition"
 version = providers.environmentVariable("VERSION").getOrElse("1.0.0")
 
 labyMod {
-    defaultPackageName = "dev_janheist_saveguimouseposition" //change this to your main package name (used by all modules)
+    defaultPackageName = "dev.janheist.saveguimouseposition" //change this to your main package name (used by all modules)
 
     minecraft {
         registerVersion(versions.toTypedArray()) {
@@ -23,7 +23,7 @@ labyMod {
     }
 
     addonInfo {
-        namespace = "dev_janheist_saveguimouseposition"
+        namespace = "saveguimouseposition"
         displayName = "Save GUI Mouse Position"
         author = "Jan Heist"
         description = "Save Mouse Position in Inventory GUIs globally or based on the Inventory's title."
