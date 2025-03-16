@@ -1,4 +1,4 @@
-package dev.janheist.guimouseposition.v1_12_2;
+package dev_janheist_saveguimouseposition.v1_12_2;
 
 import dev.janheist.guimouseposition.core.SaveGuiMousePosAddon;
 import dev.janheist.guimouseposition.core.SaveGuiMousePosAddonConfig.SaveScope;
