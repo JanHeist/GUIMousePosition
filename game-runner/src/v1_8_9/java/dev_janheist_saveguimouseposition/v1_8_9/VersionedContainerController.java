@@ -1,4 +1,4 @@
-package dev.janheist.guimouseposition.v1_12_2;
+package dev_janheist_saveguimouseposition.v1_8_9;
 
 import dev.janheist.guimouseposition.core.SaveGuiMousePosAddon;
 import dev.janheist.guimouseposition.core.SaveGuiMousePosAddonConfig.SaveScope;
@@ -7,14 +7,12 @@ import net.labymod.api.Laby;
 import net.labymod.api.client.gui.window.Window;
 import net.labymod.api.event.client.gui.screen.ScreenDisplayEvent;
 import net.labymod.api.models.Implements;
-import net.labymod.v1_12_2.client.gui.screen.VersionedScreenWrapper;
+import net.labymod.v1_8_9.client.gui.screen.VersionedScreenWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.world.IWorldNameable;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.Display;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.HashMap;
