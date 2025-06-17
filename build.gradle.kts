@@ -25,7 +25,7 @@ labyMod {
     addonInfo {
         namespace = "saveguimouseposition"
         displayName = "Save GUI Mouse Position"
-        author = "Jan Heist"
+        author = "Mexykaner"
         description = "Save Mouse Position in Inventory GUIs globally or based on the Inventory."
         minecraftVersion = "*"
         version = rootProject.version.toString()
