@@ -27,7 +27,7 @@ labyMod {
         displayName = "Save GUI Mouse Position"
         author = "Mexykaner"
         description = "Save Mouse Position in Inventory GUIs globally or based on the Inventory."
-        minecraftVersion = "1.8.9;1.12.2;1.16.5;1.17.1;1.18.2;1.19.2;1.19.3;1.19.4;1.20.1;1.20.2;1.20.4;1.20.5;1.20.6;1.21;1.21.1;1.21.3;1.21.4;1.21.5"
+        minecraftVersion = "1.8.9<1.21.5"
         version = rootProject.version.toString()
     }
 }
